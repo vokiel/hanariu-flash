@@ -1,5 +1,5 @@
 Flash module for Hanariu framework with Twitter Bootstrap integration
-===========================
+===========================================
 
 Basic flash module with Twitter Bootstrap view
 
@@ -96,27 +96,27 @@ public function before()
 
 If you want to use own message names just copy default view to `app/views/flash/bootstrap.php` and add your code, for example:
 ```php
-&lt;?php namespace Hanariu; ?&gt;
+<?php namespace Hanariu; ?>
 
-&lt;?php
+<?php
 $message_names = array(
   'info' => 'Informacja',
   'success' => 'Powodzenie',
   'warning' => 'Ostrzeżenie',
   'error' => 'Błąd'
 );
-?&gt;
+?>
 
-&lt;?php if ( !empty($messages) && \Hanariu\Arr::is_array($messages) ): ?&gt;
+<?php if ( !empty($messages) && \Hanariu\Arr::is_array($messages) ): ?>
 
- &lt;?php foreach ( $messages as $message ): ?&gt;
+ <?php foreach ( $messages as $message ): ?>
 
-   &lt;div class="alert alert-&lt;?php echo $message['type']; ?&gt;"&gt;
-     &lt;button type="button" class="close" data-dismiss="alert"&gt;&times;&lt;/button&gt;
-     &lt;strong&gt;&lt;?php echo $message_names[$message['type']];?&gt;&lt;/strong&gt;: &lt;?php echo $message['message']; ?&gt;
-   &lt;/div&gt;
+   <div class="alert alert-<?php echo $message['type']; ?>">
+     <button type="button" class="close" data-dismiss="alert">&times;</button>
+     <strong><?php echo $message_names[$message['type']];?></strong>: <?php echo $message['message']; ?>
+   </div>
 
- &lt;?php endforeach; ?&gt;
+ <?php endforeach; ?>
 
-&lt;?php endif; ?&gt;
+<?php endif; ?>
 ```
