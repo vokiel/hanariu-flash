@@ -1,8 +1,5 @@
 <?php namespace Hanariu;
 
-use \Hanariu\Session as Session;
-use \Hanariu\View as View;
-
 class Flash {
 
   public static $view = 'flash/bootstrap';
@@ -10,7 +7,7 @@ class Flash {
 
   public static function render( $view = NULL )
   {
-    $messages = Session::instance()->get_once('flash',array());
+    $messages = \Hanariu\Session::instance()->get_once('flash',array());
 
     if ($view === NULL)
     {
@@ -38,8 +35,8 @@ class Flash {
       $type = \Hanariu\Flash::$types[0];
     }
 
-    $messages = array_merge( Session::instance()->get('flash',array()), array(array( 'type' => $type, 'message' => $message)) );
-    Session::instance()->set('flash',$messages);
+    $messages = array_merge( \Hanariu\Session::instance()->get('flash',array()), array(array( 'type' => $type, 'message' => $message)) );
+    \Hanariu\Session::instance()->set('flash',$messages);
   }
 
   /**
@@ -48,7 +45,7 @@ class Flash {
    */
   public static function info( $message )
   {
-    Flash::add('info', $message);
+    \Hanariu\Flash::add('info', $message);
   }
 
   /**
@@ -57,7 +54,7 @@ class Flash {
    */
   public static function success( $message )
   {
-    Flash::add('success', $message);
+    \Hanariu\Flash::add('success', $message);
   }
 
   /**
@@ -66,7 +63,7 @@ class Flash {
    */
   public static function warning( $message )
   {
-    Flash::add('warning', $message);
+    \Hanariu\Flash::add('warning', $message);
   }
 
   /**
@@ -75,7 +72,7 @@ class Flash {
    */
   public static function error( $message )
   {
-    Flash::add('error', $message);
+    \Hanariu\Flash::add('error', $message);
   }
 
 }
